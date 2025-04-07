@@ -36,17 +36,6 @@
       flex-direction: column;
       flex-wrap: wrap;
     }
-    
-    .hover-underline::after, .hover-underline::before {
-      content: '';
-      width: 100%;
-      height: 2px;
-      background-color: linear-gradient(to right, #6B0F9C, #ffc600);
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.4s ease-out;
-    }
-
 
     .panel {
       background: #6B0F9C;
@@ -68,6 +57,20 @@
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
+      transition: .5s ease;
+      filter: grayscale(100%);
+      -webkit-filter: grayscale(100%);
+      -webkit-transition: all 1s ease;
+    }
+
+
+    .panel:hover {
+      transition: .5s ease;
+      filter: grayscale(0%);
+      filter: gray;
+      -webkit-filter: grayscale(0%);
+      filter: none;
+      transition: 1s ease;
     }
 
     .panel1 { background-image:url(/images/Fall.jpg); }
@@ -98,9 +101,9 @@
 
     /* Translate Y Styles */
     .panel > *:first-child {transform: translateY(-100%)}
-    .panel.open-active > *:first-child {transform: translateY(0)}
+    .panel.open > *:first-child {transform: translateY(0)}
     .panel > *:last-child {transform: translateY(100%)}
-    .panel.open-active > *:last-child {transform: translateY(-0%)}
+    .panel.open > *:last-child {transform: translateY(-0%)}
 
 
     .panel p {
@@ -117,6 +120,10 @@
     .panel.open {
       font-size: 40px;
       flex: 2;
+      filter: grayscale(0%);
+      filter: gray;
+      -webkit-filter: grayscale(0%);
+      filter: none;
     }
 
   </style>
@@ -125,56 +132,56 @@
 
     <div class="panels">
       <div class="panel panel1">
-        <p>Hey</p>
-        <p class="hover-underline">Let's</p>
-        <p>Dance</p>
+        <p>This</p>
+        <p>Life</p>
+        <p>Of mine</p>
       </div>
       <div class="panel panel2">
-        <p>Give</p>
-        <p class="hover-underline">Take</p>
-        <p>Receive</p>
+        <p>Nature</p>
+        <p>Is</p>
+        <p>Great</p>
       </div>
       <div class="panel panel3">
-        <p>Experience</p>
-        <p class="hover-underline">It</p>
-        <p>Today</p>
+        <p>Give</p>
+        <p>Not</p>
+        <p>Take</p>
       </div>
       <div class="panel panel4">
-        <p>Give</p>
-        <p class="hover-underline">All</p>
-        <p>You can</p>
+        <p>Live</p>
+        <p>Always</p>
+        <p>Free</p>
       </div>
       <div class="panel panel5">
-        <p>Life</p>
-        <p class="hover-underline">In</p>
-        <p>Motion</p>
+        <p>Kiss</p>
+        <p>Gray</p>
+        <p>Goodbye</p>
       </div>
     </div>
 
     <div class="panels">
       <div class="panel panel6">
-        <p>I think</p>
-        <p>I</p>
-        <p>Love life</p>
+        <p>Try to</p>
+        <p>See</p>
+        <p>good</p>
       </div>
       <div class="panel panel7">
-        <p>Cherish</p>
-        <p>Love</p>
-        <p>Always</p>
+        <p>Savor</p>
+        <p>a</p>
+        <p>Moment</p>
       </div>
       <div class="panel panel8">
-        <p>Dedicated</p>
-        <p>To</p>
-        <p>Success</p>
+        <p>Take a</p>
+        <p>Bit</p>
+        <p>of time</p>
       </div>
       <div class="panel panel9">
-        <p>You can</p>
-        <p>Be</p>
-        <p>Great</p>
+        <p>life</p>
+        <p>Of</p>
+        <p>ours</p>
       </div>
       <div class="panel panel10">
         <p>Feel</p>
-        <p>Alive</p>
+        <p>Color</p>
         <p>Again</p>
       </div> 
     </div>
@@ -187,12 +194,6 @@
 
     function toggleOpen() {
       this.classList.toggle('open')
-    }
-
-    function toggleActive(e) {
-      if (e.propertyName.includes('flex')) {
-        this.classList.toggle('open-active')
-      }
     }
 
     panels.forEach(panel => panel.addEventListener('click', toggleOpen));
